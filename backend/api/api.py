@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """ Api module """
 from flask import Flask, make_response, jsonify
+from backend.api.views.__init__ import app_views
+
 
 app = Flask(__name__)
+app.register_blueprint(app_views)
 
 @app.route('/api', methods=['GET'], strict_slashes=False)
 def test():
