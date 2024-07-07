@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" holds class Category"""
+""" Order_item model"""
 from data_models.shared import SharedBase, Base
 from sqlalchemy import Column, Integer, ForeignKey
 
