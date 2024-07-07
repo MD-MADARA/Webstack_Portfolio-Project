@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ holds class User"""
-from data_models.shared import SharedBase, Base
+from backend.data_models.shared import SharedBase, Base
 from sqlalchemy import Column, String, Integer, CheckConstraint, Float
 
 

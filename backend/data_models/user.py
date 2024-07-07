@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ holds User Model"""
-from data_models.shared import SharedBase, Base
+from backend.data_models.shared import SharedBase, Base
 from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 from hashlib import md5

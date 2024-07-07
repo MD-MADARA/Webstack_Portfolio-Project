@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ holds class Category"""
-from data_models.shared import SharedBase, Base
+from backend.data_models.shared import SharedBase, Base
 from sqlalchemy import Column, Integer, ForeignKey, Table
 from sqlalchemy.orm import relationship
 
