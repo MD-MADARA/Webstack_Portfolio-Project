@@ -16,3 +16,31 @@ class SharedBase:
 
     updated_date = Column(DateTime, default=datetime.now(), nullable=False)
 
+    def __init__(self, *args, **kwargs):
+        """Initialization of the Shared class model"""
+        if kwargs:
+            time = '%Y-%m-%dT%H:%M:%S.%f'
+            if kwargs.get("created_date", None) and type(self.created_date) is str:
+                self.created_date = datetime.strptime(kwargs["created_date"], time)
+            else:
+                self.created_date = datetime.now()
+            if kwargs.get("updated_date", None) and type(self.updated_date) is str:
+                self.updated_date = datetime.strptime(kwargs["updated_date"], time)
+            else:
+                self.updated_date = datetime.now()
+            for key, value in kwargs.items():
+                if key not in ["__class__", "created_date", "updated_date"]:
+                    if hasattr(self, key):
+                        setattr(self, key, value)
+
+    def save(self):
+        """Updates updated_date with current time when instance is changed"""
+        from backend import storage
+        self.updated_date = datetime.now()
+        storage.new(self)
+        storage.save()
+
+    def delete(self):
+        """delete the current instance from the storage"""
+        from backend import storage
+        storage.delete(self)
