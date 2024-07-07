@@ -2,6 +2,7 @@
 """ holds User Model"""
 from data_models.shared import SharedBase, Base
 from sqlalchemy import Column, String, Integer, ForeignKey
+from sqlalchemy.orm import relationship
 from hashlib import md5
 
 
@@ -15,7 +16,7 @@ class User(SharedBase, Base):
     address = Column(String(256), nullable=False)
     phone = Column(String(128), nullable=False)
     cart_id = Column(Integer, ForeignKey('cart.id'))
-
+    orders = relationship("Order", backref="user", cascade="all, delete, delete-orphan")
 
     
     def __setattr__(self, key, value):
