@@ -66,3 +66,12 @@ class StorageEngine:
                 objs = self.__session.query(classes[clss]).all()
                 cpt += len(objs)
         return cpt
+
+    def get_by_id(self, cls, id):
+        """get object by class and id"""
+        for clss in classes:
+            if cls is classes[clss]:
+                result = self.__session.query(cls).filter(cls.id == id).first()
+                if result:
+                    return result
+        return None
