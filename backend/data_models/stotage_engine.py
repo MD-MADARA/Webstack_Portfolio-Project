@@ -13,6 +13,11 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
 
+classes = {
+    "Product": Product, "OrderItem": OrderItem,
+    "Order": Order, "User": User, "Cart": Cart
+}
+
 
 class StorageEngine:
     """ Engine class to controle and interacts with MySQL database"""
@@ -26,7 +31,6 @@ class StorageEngine:
         host_name = getenv('HOST_NAME')
         db_name = getenv('DB_NAME')
         db_url = f"mysql+mysqldb://{user}:{password}@{host_name}/{db_name}"
-
         self.__engine = create_engine(db_url, pool_pre_ping=True)
 
     def reload(self):
@@ -52,3 +56,13 @@ class StorageEngine:
     def close(self):
         """call remove() method on the private session attribute"""
         self.__session.remove()
+
+
+    def count(self, cls=None):
+        """count all classes"""
+        cpt = 0
+        for clss in classes:
+            if cls is None or cls is classes[clss]:
+                objs = self.__session.query(classes[clss]).all()
+                cpt += len(objs)
+        return cpt
