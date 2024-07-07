@@ -44,3 +44,17 @@ class SharedBase:
         """delete the current instance from the storage"""
         from backend import storage
         storage.delete(self)
+
+    def dict_format(self):
+        """Convert instance into dictionnary format"""
+        dictionary = self.__dict__.copy()
+        dictionary['__class__'] = self.__class__.__name__
+        if "password" in dictionary:
+            del dictionary["password"]
+        if "_sa_instance_state" in dictionary:
+            del dictionary["_sa_instance_state"]
+
+        for key, value in dictionary.items():
+            if isinstance(value, datetime):
+                dictionary[key] = datetime.isoformat(value)
+        return dictionary
