@@ -14,7 +14,7 @@ parameters:
           example: Mouad.Khanouch@example.com
         password:
           type: string
-          example: secret
+          example: StrongPassword
         first_name:
           type: string
           example: Mouad

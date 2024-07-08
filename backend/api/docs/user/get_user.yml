@@ -5,7 +5,7 @@ description: Retrieve a specific user by their ID
 parameters:
   - name: id
     in: path
-    type: integer
+    type: string
     required: true
     description: The ID of the user
 responses:
@@ -15,8 +15,8 @@ responses:
       type: object
       properties:
         id:
-          type: integer
-          example: 1
+          type: string
+          example: 4e2fdcce-27f7-4aaa-858e-bde3d87d25d5
         email:
           type: string
           example: Mouad.Khanouch@example.com
