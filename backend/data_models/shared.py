@@ -4,7 +4,8 @@ from datetime import datetime
 from sqlalchemy import Column, DateTime, String
 from sqlalchemy.orm import declarative_base
 from uuid import uuid4
-from pprint import pprint
+
+
 Base = declarative_base()
 
 
@@ -21,7 +22,8 @@ class SharedBase:
         self.updated_date = Column(DateTime, default=datetime.now(), nullable=False)
 
         for key, value in kwargs.items():
-            if key not in ["__class__", "created_date", "updated_date"]:
+            ignore = ["__class__", "created_date", "updated_date", "id", "discount"]
+            if key not in ignore:
                 if hasattr(self, key):
                     setattr(self, key, value)
 
@@ -50,4 +52,3 @@ class SharedBase:
             if isinstance(value, datetime):
                 dictionary[key] = datetime.isoformat(value)
         return dictionary
-
