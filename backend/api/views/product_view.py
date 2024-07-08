@@ -64,7 +64,7 @@ def get_products():
     return make_response(jsonify(filtered_products), 200)
 
 
-@app_views.route('/products/<int:id>', methods=['GET'], strict_slashes=False)
+@app_views.route('/products/<str:id>', methods=['GET'], strict_slashes=False)
 @swag_from('../docs/product/get_product.yml')
 def get_product(id):
     """
@@ -74,7 +74,7 @@ def get_product(id):
     return make_response(jsonify(product.dict_format()), 200)
 
 
-@app_views.route('/products/<int:id>', methods=['DELETE'], strict_slashes=False)
+@app_views.route('/products/<str:id>', methods=['DELETE'], strict_slashes=False)
 @swag_from('../docs/product/delete_product.yml')
 def delete_product(id):
     """
@@ -107,7 +107,7 @@ def post_product():
     return make_response(jsonify(instance.dict_format()), 201)
 
 
-@app_views.route('/products/<int:id>', methods=['PUT'], strict_slashes=False)
+@app_views.route('/products/<str:id>', methods=['PUT'], strict_slashes=False)
 @swag_from('../docs/product/put_product.yml')
 def put_product(id):
     """

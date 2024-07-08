@@ -44,7 +44,7 @@ def validate_user_data(data):
 
 
 # GET api/users/{id}
-@app_views.route('/users/<int:id>', methods=['GET'], strict_slashes=False)
+@app_views.route('/users/<str:id>', methods=['GET'], strict_slashes=False)
 @swag_from('../docs/user/get_user.yml')
 def get_user(id):
     """Get user by ID"""
@@ -72,7 +72,7 @@ def get_users():
 
 
 # DELETE api/users/{id}
-@app_views.route('/users/<int:id>', methods=['DELETE'], strict_slashes=False)
+@app_views.route('/users/<str:id>', methods=['DELETE'], strict_slashes=False)
 @swag_from('../docs/user/delete_user.yml')
 def delete_user(id):
     """Deletes a user object"""
@@ -102,7 +102,7 @@ def post_user():
 
 
 # PUT api/users/{id}
-@app_views.route('/users/<int:id>', methods=['PUT'], strict_slashes=False)
+@app_views.route('/users/<str:id>', methods=['PUT'], strict_slashes=False)
 @swag_from('../docs/user/put_user.yml')
 def put_user(id):
     """Updates a user"""
