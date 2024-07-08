@@ -7,8 +7,15 @@ from backend.api.views import app_views
 from backend.logging_config import logger 
 from flask import jsonify, abort, make_response, request
 from flasgger import swag_from
+import re
 
 
+# Regular expression for password validation
+# (at least 8 characters, one uppercase, one lowercase, one digit, 
+# and one special character)
+PASSWORD_REGEX = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
+# Regular expression for basic email format validation
+EMAIL_REGEX = r'^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$'
 
 def get_user_by_id(id):
     """get user by id"""
@@ -24,23 +31,29 @@ def validate_user_data(data):
     for field in required_fields:
         if field not in data:
             abort(400, description=f"Missing {field}")
-    if len(data.get("password", "")) < 8:
-        abort(400, description="Password must be at least 8 characters long")
+    
+    # Validate email format using regex
+    if not re.match(EMAIL_REGEX, data.get('email')):
+        abort(400, description="Invalid email format")
+
+    if not re.match(PASSWORD_REGEX, data.get('password')):
+        abort(400, description="Password must meet specified requirements")
+
     if storage.get_user_by_email(data.get("email")):
         abort(400, description="Email already exists")
 
 
 # GET api/users/{id}
-@swag_from('../docs/user/get_user.yml')
 @app_views.route('/users/<int:id>', methods=['GET'], strict_slashes=False)
+@swag_from('../docs/user/get_user.yml')
 def get_user(id):
     """Get user by ID"""
     user = get_user_by_id(id)
     return make_response(jsonify(user.dict_format()), 200)
 
 # GET api/users
-@swag_from('../docs/user/get_users.yml')
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
+@swag_from('../docs/user/get_users.yml')
 def get_users():
     """Retrieves the list of all user objects"""
     limit = request.args.get('limit')
@@ -59,19 +72,19 @@ def get_users():
 
 
 # DELETE api/users/{id}
-@swag_from('../docs/user/delete_user.yml')
 @app_views.route('/users/<int:id>', methods=['DELETE'], strict_slashes=False)
+@swag_from('../docs/user/delete_user.yml')
 def delete_user(id):
     """Deletes a user object"""
     user = get_user_by_id(id)
     user.delete()
     storage.save()
-    return make_response(jsonify({}), 200)
+    return make_response(jsonify({"description": "User deleted successfully"}), 200)
 
 
 # POST api/users
-@swag_from('../docs/user/post_user.yml')
 @app_views.route('/users', methods=['POST'], strict_slashes=False)
+@swag_from('../docs/user/post_user.yml')
 def post_user():
     """Creates a user"""
     if not request.get_json():
@@ -89,18 +102,22 @@ def post_user():
 
 
 # PUT api/users/{id}
+@app_views.route('/users/<int:id>', methods=['PUT'], strict_slashes=False)
 @swag_from('../docs/user/put_user.yml')
-@app_views.route('/users/<int:user_id>', methods=['PUT'], strict_slashes=False)
-def put_user(user_id):
+def put_user(id):
     """Updates a user"""
-    user = get_user_by_id(user_id)
+    user = get_user_by_id(id)
     if not request.get_json():
         abort(400, description="Not a JSON")
 
-    ignore = ['id', 'email', 'created_at', 'updated_at']
+    ignore = ['id', 'email', 'created_date', 'updated_date']
     data = request.get_json()
+    password = data.get('password', None)
+    if password and not re.match(PASSWORD_REGEX, password):
+        abort(400, description="Password must meet specified requirements")
+
     for key, value in data.items():
         if key not in ignore and hasattr(user, key):
             setattr(user, key, value)
-    storage.save()
-    return make_response(jsonify(user.dict_format()), 200)
+    user.save()
+    return make_response(jsonify({"description": "User updated successfully"}), 200)
