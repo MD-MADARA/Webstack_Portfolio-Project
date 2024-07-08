@@ -1,0 +1,42 @@
+tags:
+  - Users
+summary: Get user by ID
+description: Retrieve a specific user by their ID
+parameters:
+  - name: id
+    in: path
+    type: integer
+    required: true
+    description: The ID of the user
+responses:
+  200:
+    description: A user object
+    schema:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        email:
+          type: string
+          example: Mouad.Khanouch@example.com
+        first_name:
+          type: string
+          example: Mouad
+        last_name:
+          type: string
+          example: Khanouch
+        address:
+          type: string
+          example: 123 Main St
+        phone:
+          type: string
+          example: 555-555-5555
+  404:
+    description: User not found
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: User not found

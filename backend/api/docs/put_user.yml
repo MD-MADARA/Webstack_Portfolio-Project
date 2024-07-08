@@ -1,0 +1,68 @@
+tags:
+  - Users
+summary: Update a user
+description: Updates a user
+parameters:
+  - name: user_id
+    in: path
+    type: integer
+    required: true
+    description: The ID of the user
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        first_name:
+          type: string
+          example: Mouad
+        last_name:
+          type: string
+          example: Khanouch
+        address:
+          type: string
+          example: 123 Main St
+        phone:
+          type: string
+          example: 555-555-5555
+responses:
+  200:
+    description: User updated successfully
+    schema:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        email:
+          type: string
+          example: Mouad.Khanouch@example.com
+        first_name:
+          type: string
+          example: Mouad
+        last_name:
+          type: string
+          example: Khanouch
+        address:
+          type: string
+          example: 123 Main St
+        phone:
+          type: string
+          example: 555-555-5555
+  400:
+    description: Invalid input
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Not a JSON
+  404:
+    description: User not found
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: User not found

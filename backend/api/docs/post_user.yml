@@ -1,0 +1,46 @@
+tags:
+  - Users
+summary: Create a new user
+description: Creates a user
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        email:
+          type: string
+          example: Mouad.Khanouch@example.com
+        password:
+          type: string
+          example: secret
+        first_name:
+          type: string
+          example: Mouad
+        last_name:
+          type: string
+          example: Khanouch
+        address:
+          type: string
+          example: 123 Main St
+        phone:
+          type: string
+          example: 555-555-5555
+responses:
+  201:
+    description: User created successfully
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: successfully registered
+  400:
+    description: Invalid input
+    schema:
+      type: object
+      properties:
+        description:
+          type: string
+          example: Missing email

@@ -75,3 +75,43 @@ class StorageEngine:
                 if result:
                     return result
         return None
+
+    def get_user_by_email(self, email):
+        """get user by email"""
+        user = self.__session.query(User).filter(User.email == email).first()
+        if user:
+            return user
+        return None
+
+    def all(self, cls=None, order_asc=None, order_desc=None, filter=None):
+        """query on the current database session"""
+        new_dict = {}
+        i = 1
+        if filter and isinstance(filter, dict) and len(filter) == 1:
+            f_key, f_value = next(iter(filter.items()))
+        else:
+            f_key = None
+        for clss in classes.values():
+            if cls is None or cls is clss:
+                if cls and order_asc and hasattr(cls, order_asc):
+                    if f_key and hasattr(cls, f_key):
+                        objs = self.__session.query(cls).filter(getattr(cls, f_key) == f_value).order_by(getattr(cls, order_asc)).all()
+                    else:
+                        objs = self.__session.query(cls).order_by(getattr(cls, order_asc)).all()
+
+                elif cls and order_desc and hasattr(cls, order_desc):
+                    if f_key and hasattr(cls, f_key):
+                        objs = self.__session.query(cls).filter(getattr(cls, f_key) == filter[f_key]).order_by(getattr(cls, order_desc).desc()).all()
+                    else:
+                        objs = self.__session.query(cls).order_by(getattr(cls, order_desc).desc()).all()
+
+                else:
+                    if f_key and hasattr(cls, f_key):
+                        objs = self.__session.query(cls).filter(getattr(cls, f_key) == filter[f_key]).all()
+                    else:
+                        objs = self.__session.query(cls).all()
+                for obj in objs:
+                    key = f'(N°{i}) ' + obj.__class__.__name__ + '.' + str(obj.id)
+                    new_dict[key] = obj
+                    i += 1
+        return (new_dict)

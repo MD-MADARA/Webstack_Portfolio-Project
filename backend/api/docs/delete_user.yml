@@ -1,0 +1,27 @@
+tags:
+  - Users
+summary: Delete a user
+description: Deletes a user object
+parameters:
+  - name: id
+    in: path
+    type: integer
+    required: true
+    description: The ID of the user
+responses:
+  200:
+    description: User deleted successfully
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: User deleted successfully
+  404:
+    description: User not found
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: User not found
