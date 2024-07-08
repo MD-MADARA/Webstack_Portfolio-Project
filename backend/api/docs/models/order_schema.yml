@@ -1,0 +1,25 @@
+Order:
+  type: object
+  properties:
+    id:
+      type: string
+      description: Unique identifier for the order
+      example: '1'
+    total_price:
+      type: number
+      format: float
+      description: Total price of the order
+      example: 100.50
+    status:
+      type: string
+      description: Status of the order
+      example: pending
+    user_id:
+      type: string
+      description: User ID associated with the order
+      example: '1'
+    order_items:
+      type: array
+      items:
+        $ref: '#/definitions/OrderItem'
+      description: List of order items in the order

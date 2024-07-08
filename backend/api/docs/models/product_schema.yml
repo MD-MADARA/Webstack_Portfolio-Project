@@ -1,0 +1,36 @@
+Product:
+  type: object
+  properties:
+    id:
+      type: string
+      description: Unique identifier for the product
+      example: '1'
+    title:
+      type: string
+      description: Title of the product
+      example: Product Title
+    price:
+      type: number
+      format: float
+      description: Price of the product
+      example: 19.99
+    description:
+      type: string
+      description: Description of the product
+      example: Product description
+    discount:
+      type: integer
+      description: Discount on the product
+      example: 10
+    category_name:
+      type: string
+      description: Name of the product category
+      example: Electronics
+    category_type:
+      type: string
+      description: Type of the product category
+      example: Gadget
+    image_url:
+      type: string
+      description: URL of the product image
+      example: http://example.com/image.jpg

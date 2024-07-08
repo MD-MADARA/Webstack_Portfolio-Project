@@ -1,0 +1,40 @@
+User:
+  type: object
+  properties:
+    id:
+      type: string
+      description: Unique identifier for the user
+      example: '1'
+    first_name:
+      type: string
+      description: First name of the user
+      example: Mouad
+    last_name:
+      type: string
+      description: Last name of the user
+      example: Khanouch
+    email:
+      type: string
+      description: Email address of the user
+      example: Mouad.Khanouch@example.com
+    password:
+      type: string
+      description: Password for the user account (stored as MD5 hash)
+      example: 5f4dcc3b5aa765d61d8327deb882cf99
+    address:
+      type: string
+      description: Address of the user
+      example: 123 Main St
+    phone:
+      type: string
+      description: Phone number of the user
+      example: 555-555-5555
+    cart_id:
+      type: string
+      description: Cart ID associated with the user
+      example: '1'
+    orders:
+      type: array
+      items:
+        $ref: '#/definitions/Order'
+      description: List of orders made by the user

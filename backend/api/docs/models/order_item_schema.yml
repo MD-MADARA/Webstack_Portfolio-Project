@@ -1,0 +1,19 @@
+OrderItem:
+  type: object
+  properties:
+    id:
+      type: string
+      description: Unique identifier for the order item
+      example: '1'
+    item_quantity:
+      type: integer
+      description: Quantity of the item in the order
+      example: 2
+    product_id:
+      type: string
+      description: Product ID associated with the order item
+      example: '1'
+    order_id:
+      type: string
+      description: Order ID associated with the order item
+      example: '1'

@@ -1,0 +1,17 @@
+SharedBase:
+  type: object
+  properties:
+    id:
+      type: string
+      description: Unique identifier for the object
+      example: '1'
+    created_date:
+      type: string
+      format: date-time
+      description: Date and time when the object was created
+      example: 2023-01-01T12:00:00Z
+    updated_date:
+      type: string
+      format: date-time
+      description: Date and time when the object was last updated
+      example: 2023-01-02T12:00:00Z
