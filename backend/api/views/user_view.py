@@ -31,7 +31,7 @@ def validate_user_data(data):
 
 
 # GET api/users/{id}
-@swag_from('../docs/get_user.yml')
+@swag_from('../docs/user/get_user.yml')
 @app_views.route('/users/<int:id>', methods=['GET'], strict_slashes=False)
 def get_user(id):
     """Get user by ID"""
@@ -39,7 +39,7 @@ def get_user(id):
     return make_response(jsonify(user.dict_format()), 200)
 
 # GET api/users
-@swag_from('../docs/get_users.yml')
+@swag_from('../docs/user/get_users.yml')
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
 def get_users():
     """Retrieves the list of all user objects"""
@@ -59,7 +59,7 @@ def get_users():
 
 
 # DELETE api/users/{id}
-@swag_from('../docs/delete_user.yml')
+@swag_from('../docs/user/delete_user.yml')
 @app_views.route('/users/<int:id>', methods=['DELETE'], strict_slashes=False)
 def delete_user(id):
     """Deletes a user object"""
@@ -70,7 +70,7 @@ def delete_user(id):
 
 
 # POST api/users
-@swag_from('../docs/post_user.yml')
+@swag_from('../docs/user/post_user.yml')
 @app_views.route('/users', methods=['POST'], strict_slashes=False)
 def post_user():
     """Creates a user"""
@@ -89,7 +89,7 @@ def post_user():
 
 
 # PUT api/users/{id}
-@swag_from('../docs/put_user.yml')
+@swag_from('../docs/user/put_user.yml')
 @app_views.route('/users/<int:user_id>', methods=['PUT'], strict_slashes=False)
 def put_user(user_id):
     """Updates a user"""
