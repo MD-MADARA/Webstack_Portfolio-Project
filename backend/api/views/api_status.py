@@ -3,8 +3,8 @@
 from backend.api.views.__init__ import app_views
 from flask import jsonify, make_response
 from backend import storage
-from backend.data_models.product import Product
-from backend.data_models.user import User
+from backend.models.product import Product
+from backend.models.user import User
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)

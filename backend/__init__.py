@@ -2,7 +2,7 @@
 """
 initialize the models package
 """
-from backend.data_models.storage_engine import StorageEngine
+from backend.models.storage_engine import StorageEngine
 
 storage = StorageEngine()
 storage.reload()

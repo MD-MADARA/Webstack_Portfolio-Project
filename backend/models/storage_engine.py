@@ -2,12 +2,12 @@
 """ StorageEngine module
 """
 
-from backend.data_models.shared import Base
-from backend.data_models.order_items import OrderItem
-from backend.data_models.order import Order
-from backend.data_models.product import Product
-from backend.data_models.user import User
-from backend.data_models.cart import Cart
+from backend.models.shared import Base
+from backend.models.order_items import OrderItem
+from backend.models.order import Order
+from backend.models.product import Product
+from backend.models.user import User
+from backend.models.cart import Cart
 from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker

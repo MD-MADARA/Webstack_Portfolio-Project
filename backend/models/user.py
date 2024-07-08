@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ holds User Model"""
-from backend.data_models.shared import SharedBase, Base
-from sqlalchemy import Column, String, Integer, ForeignKey
+from backend.models.shared import SharedBase, Base
+from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from hashlib import md5
 
@@ -12,10 +12,10 @@ class User(SharedBase, Base):
     first_name = Column(String(128), nullable=False)
     last_name = Column(String(128), nullable=False)
     email = Column(String(128), nullable=False, unique=True)
-    password = Column(String(128), nullable=False)
+    password = Column(String(256), nullable=False)
     address = Column(String(256), nullable=False)
     phone = Column(String(128), nullable=False)
-    cart_id = Column(Integer, ForeignKey('cart.id'))
+    cart_id = Column(String(128), ForeignKey('cart.id'))
     orders = relationship("Order", backref="user", cascade="all, delete, delete-orphan")
 
     

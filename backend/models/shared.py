@@ -13,13 +13,14 @@ class SharedBase:
     """A base class for all models"""
 
 
+    id = Column(String(128), primary_key=True, default=str(uuid4()))
+
+    created_date = Column(DateTime, default=datetime.now(), nullable=False)
+
+    updated_date = Column(DateTime, default=datetime.now(), nullable=False)
+
     def __init__(self, *args, **kwargs):
         """Initialization of the Shared class model"""
-        self.id = Column(String(128), primary_key=True, default=str(uuid4()))
-
-        self.created_date = Column(DateTime, default=datetime.now(), nullable=False)
-
-        self.updated_date = Column(DateTime, default=datetime.now(), nullable=False)
 
         for key, value in kwargs.items():
             ignore = ["__class__", "created_date", "updated_date", "id", "discount"]
