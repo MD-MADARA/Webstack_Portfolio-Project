@@ -1,0 +1,62 @@
+swagger: '2.0'
+info:
+  description: Retrieve a specific product by its ID
+  version: "1.0.0"
+  title: Get Product
+tags:
+  - Products
+summary: Get product by ID
+description: Retrieve a specific product by its ID
+parameters:
+  - name: id
+    in: path
+    type: string
+    required: true
+    description: The ID of the product
+responses:
+  200:
+    description: A product object
+    schema:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 4aaa-858e-4e2fdcce-27f7-bde3d87d25d5
+        title:
+          type: string
+          example: Product Title
+        price:
+          type: number
+          example: 19.99
+        description:
+          type: string
+          example: Product description
+        category_name:
+          type: string
+          example: T-shirt
+        category_type:
+          type: string
+          example: Women
+        created_date:
+          type: string
+          format: date-time
+          example: 2023-01-01T00:00:00Z
+        updated_date:
+          type: string
+          format: date-time
+          example: 2023-01-01T00:00:00Z
+        discount:
+          type: integer
+          example: 25
+        img_url:
+          type: string
+          example: static/images/product-4aaa-858e-4e2fdcce-27f7-bde3d87d25d5
+
+  404:
+    description: Product not found
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Product not found

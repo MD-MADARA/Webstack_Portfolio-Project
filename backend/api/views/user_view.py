@@ -79,7 +79,7 @@ def delete_user(id):
     user = get_user_by_id(id)
     user.delete()
     storage.save()
-    return make_response(jsonify({"description": "User deleted successfully"}), 200)
+    return make_response(jsonify({"message": "User deleted successfully"}), 200)
 
 
 # POST api/users
@@ -98,7 +98,7 @@ def post_user():
     cart.save()
     user.cart_id = cart.id
     user.save()
-    return make_response(jsonify({"description": "successfully registered"}), 201)
+    return make_response(jsonify({"message": "successfully registered"}), 201)
 
 
 # PUT api/users/{id}
@@ -120,4 +120,4 @@ def put_user(id):
         if key not in ignore and hasattr(user, key):
             setattr(user, key, value)
     user.save()
-    return make_response(jsonify({"description": "User updated successfully"}), 200)
+    return make_response(jsonify({"message": "User updated successfully"}), 200)

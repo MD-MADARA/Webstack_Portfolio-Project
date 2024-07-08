@@ -1,0 +1,60 @@
+swagger: '2.0'
+info:
+  description: Creates a new product
+  version: "1.0.0"
+  title: Create Product
+tags:
+  - Products
+summary: Create a new product
+description: Creates a new product
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - title
+        - price
+        - description
+        - category_name
+        - category_type
+        - img_url
+      properties:
+        title:
+          type: string
+          example: Product Title
+        price:
+          type: number
+          example: 19.99
+        description:
+          type: string
+          example: Product description
+        category_name:
+          type: string
+          example: T-shirt
+        category_type:
+          type: string
+          example: Women
+        img_url:
+          type: string
+          example: static/images/product-4aaa-858e-4e2fdcce-27f7-bde3d87d25d5
+
+responses:
+  201:
+    description: Product created successfully
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Product created successfully
+  
+  400:
+    description: Missing Field
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Missing title

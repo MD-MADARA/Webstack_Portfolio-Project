@@ -1,0 +1,32 @@
+swagger: '2.0'
+info:
+  description: Deletes a product by its ID
+  version: "1.0.0"
+  title: Delete Product
+tags:
+  - Products
+summary: Delete product by ID
+description: Deletes a product by its ID
+parameters:
+  - name: id
+    in: path
+    type: string
+    required: true
+    description: The ID of the product to delete
+responses:
+  200:
+    description: Product deleted successfully
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Product deleted successfully
+  404:
+    description: Product not found
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Product not found

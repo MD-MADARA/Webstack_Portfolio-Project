@@ -104,7 +104,7 @@ def post_product():
 
     instance = Product(**data)
     instance.save()
-    return make_response(jsonify(instance.dict_format()), 201)
+    return make_response(jsonify({"message": "Product created successfully"}), 201)
 
 
 @app_views.route('/products/<str:id>', methods=['PUT'], strict_slashes=False)
@@ -120,11 +120,11 @@ def put_product(id):
         abort(400, description="Not a JSON")
     data = request.get_json()
 
-    ignore = ['id', 'created_date', 'updated_date', 'product_code']
+    ignore = ['id', 'created_date', 'updated_date']
 
     for key, value in data.items():
         if key not in ignore and hasattr(product, key):
             setattr(product, key, value)
 
     product.save()
-    return make_response(jsonify(product.dict_format()), 200)
+    return make_response(jsonify({"message": "Product updated successfully"}), 200)

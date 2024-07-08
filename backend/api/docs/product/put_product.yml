@@ -1,0 +1,61 @@
+swagger: '2.0'
+info:
+  description: Updates a product by its ID
+  version: "1.0.0"
+  title: Update Product
+tags:
+  - Products
+summary: Update product by ID
+description: Updates a product by its ID
+parameters:
+  - name: id
+    in: path
+    type: string
+    required: true
+    description: The ID of the product
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Updated Product Title
+        price:
+          type: number
+          example: 29.99
+        description:
+          type: string
+          example: Updated product description
+        category_name:
+          type: string
+          example: T-shirt
+        category_type:
+          type: string
+          example: Women
+responses:
+  200:
+    description: Product updated successfully
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Product updated successfully
+  400:
+    description: Invalid input
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Not a JSON
+  404:
+    description: Product not found
+    schema:
+      type: object
+      properties:
+        error:
+          type: string
+          example: product not found
