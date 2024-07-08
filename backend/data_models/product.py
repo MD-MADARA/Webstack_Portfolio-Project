@@ -13,4 +13,4 @@ class Product(SharedBase, Base):
     discount = Column(Integer, CheckConstraint('discount <= 100'), default=0)
     category_name = Column(String(127), nullable=False)
     category_type = Column(String(127), nullable=False)
-    img_url = Column(String(256))
+    image_url = Column(String(256), nullable=False)
