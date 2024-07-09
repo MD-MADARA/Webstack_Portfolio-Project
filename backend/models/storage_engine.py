@@ -101,7 +101,11 @@ class StorageEngine:
             for attr, value in filter.items():
                 if hasattr(cls, attr):
                     query = query.filter(getattr(cls, attr) == value)
-        
+                if attr == 'max_price' and cls is Product:
+                    query = query.filter(Product.price <= value)
+                if attr == 'min_price' and cls is Product:
+                    query = query.filter(Product.price >= value)
+
         # Apply ordering
         if order_asc and hasattr(cls, order_asc):
             query = query.order_by(getattr(cls, order_asc))

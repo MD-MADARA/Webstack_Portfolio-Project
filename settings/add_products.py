@@ -1,5 +1,7 @@
-from faker import Faker
+#!/usr/bin/python3
 from backend.models.product import Product
+from faker import Faker
+
 
 fake = Faker()
 
@@ -53,10 +55,10 @@ def generate_mens_hoodie_title():
     suffix = fake.random_element(['Hoodie', 'Sweatshirt'])
     return f"{prefix} {suffix}"
 
-def add_image_url(instance):
+def set_img_url(instance):
     path = f'products/{instance.category_name}/{instance.category_type}/'
-    path += f'product_ID_{instance.Insertion_Order}/img1.WEBP'
-    instance.image_url = path
+    path += f'product_ID_{instance.insertion_order}/img1.WEBP'
+    instance.image_path = path
 
 # 25 Men Short
 for i in range(25):
@@ -69,7 +71,8 @@ for i in range(25):
         "category_type": "Men",
     }
     new = Product(**data)
-    add_image_url(new)
+    new.save()
+    set_img_url(new)
     new.save()
 
 # 115 Women Suit
@@ -83,7 +86,8 @@ for i in range(115):
         "category_type": "Women",
     }
     new = Product(**data)
-    add_image_url(new)
+    new.save()
+    set_img_url(new)
     new.save()
 
 # 34 Men T-shirt
@@ -97,7 +101,8 @@ for i in range(34):
         "category_type": "Men",
     }
     new = Product(**data)
-    add_image_url(new)
+    new.save()
+    set_img_url(new)
     new.save()
 
 # 8 Men Sweater
@@ -111,8 +116,10 @@ for i in range(8):
         "category_type": "Men",
     }
     new = Product(**data)
-    add_image_url(new)
     new.save()
+    set_img_url(new)
+    new.save()
+
 
 # 92 Women Jeans
 for i in range(92):
@@ -125,7 +132,8 @@ for i in range(92):
         "category_type": "Women",
     }
     new = Product(**data)
-    add_image_url(new)
+    new.save()
+    set_img_url(new)
     new.save()
 
 # 64 Men Jeans
@@ -139,8 +147,10 @@ for i in range(64):
         "category_type": "Men",
     }
     new = Product(**data)
-    add_image_url(new)
     new.save()
+    set_img_url(new)
+    new.save()
+
 
 # 27 Women Dress
 for i in range(27):
@@ -153,8 +163,10 @@ for i in range(27):
         "category_type": "Women",
     }
     new = Product(**data)
-    add_image_url(new)
     new.save()
+    set_img_url(new)
+    new.save()
+
 
 # 80 Women Sweater
 for i in range(80):
@@ -167,8 +179,10 @@ for i in range(80):
         "category_type": "Women",
     }
     new = Product(**data)
-    add_image_url(new)
     new.save()
+    set_img_url(new)
+    new.save()
+
 
 
 ws1 = {
@@ -190,8 +204,10 @@ ws2 = {
 data = [ws1, ws2]
 for d in data:
     new = Product(**d)
-    add_image_url(new)
     new.save()
+    set_img_url(new)
+    new.save()
+
 
 # 68 women t-shirt
 for i in range(68):
@@ -204,8 +220,10 @@ for i in range(68):
         "category_type": "Women",
     }
     new = Product(**data)
-    add_image_url(new)
     new.save()
+    set_img_url(new)
+    new.save()
+
 
 # 53 Men Suit
 for i in range(53):
@@ -218,8 +236,10 @@ for i in range(53):
         "category_type": "Men",
     }
     new = Product(**data)
-    add_image_url(new)
     new.save()
+    set_img_url(new)
+    new.save()
+
 
 # 81 Men hoodie
 for i in range(81):
@@ -232,8 +252,10 @@ for i in range(81):
         "category_type": "Men",
     }
     new = Product(**data)
-    add_image_url(new)
     new.save()
+    set_img_url(new)
+    new.save()
+
 
 # 47 Men Sweater
 for i in range(47):
@@ -246,8 +268,10 @@ for i in range(47):
         "category_type": "Men",
     }
     new = Product(**data)
-    add_image_url(new)
     new.save()
+    set_img_url(new)
+    new.save()
+
 
 # 64 Women hoodie
 for i in range(64):
@@ -260,5 +284,6 @@ for i in range(64):
         "category_type": "Women",
     }
     new = Product(**data)
-    add_image_url(new)
+    new.save()
+    set_img_url(new)
     new.save()

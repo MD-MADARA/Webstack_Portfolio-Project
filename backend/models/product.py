@@ -10,7 +10,7 @@ class Product(SharedBase, Base):
 
     # products must have Insertion_Order for ordering purpose
     # must be a primary key for auto increment so id must be overrided
-    Insertion_Order = Column(Integer, autoincrement=True, primary_key=True)
+    insertion_order = Column(Integer, autoincrement=True, primary_key=True)
     
     # override id and remove primary key constraint
     id = Column(String(128), unique=True)
@@ -21,4 +21,4 @@ class Product(SharedBase, Base):
     discount = Column(Integer, CheckConstraint('discount <= 100'), default=0)
     category_name = Column(String(127), nullable=False)
     category_type = Column(String(127), nullable=False)
-    image_url = Column(String(256), nullable=False)
+    image_path = Column(String(256))

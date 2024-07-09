@@ -94,6 +94,7 @@ def post_user():
     validate_user_data(data)
     user = User(**data)
     user.save()
+    # create cart for this user
     cart = Cart(user_id=user.id)
     cart.save()
     

@@ -39,9 +39,15 @@ def get_products():
     if category_name:
         filter['category_name'] = category_name
     if min_price:
-        filter['price'] = lambda p: p >= float(min_price)
+        try:
+            filter['min_price'] = float(min_price)
+        except ValueError:
+            logger.warning(f"price value must be a number")
     if max_price:
-        filter['price'] = lambda p: p <= float(max_price)
+        try:
+            filter['max_price'] = float(max_price)
+        except ValueError:
+            logger.warning(f"price value must be a number")
 
     # Fetch products from storage
     products = storage.all(Product, order_asc=order_asc, order_desc=order_desc, filter=filter).values()
@@ -104,11 +110,12 @@ def post_product():
         abort(400, description=f"Price must be a float number")
 
     instance = Product(**data)
+    instance.save()
 
-    # generate path to store product image based on category and Insertion_Order
+    # generate path to store product image based on category and insertion_order
     path = f'products/{instance.category_name}/{instance.category_type}/'
-    path += f'product_ID_{instance.Insertion_Order}/img1.WEBP'
-    instance.image_url = path
+    path += f'product_ID_{instance.insertion_order}/img1.WEBP'
+    instance.image_path = path
     instance.save()
     return make_response(jsonify({"message": "Product created successfully"}), 201)
 
@@ -126,7 +133,7 @@ def put_product(id):
         abort(400, description="Not a JSON")
     data = request.get_json()
 
-    ignore = ['id', 'created_date', 'updated_date', 'image_url']
+    ignore = ['id', 'created_date', 'updated_date', 'insertion_order']
 
     for key, value in data.items():
         if key not in ignore and hasattr(product, key):

@@ -4,7 +4,12 @@ Product:
     id:
       type: string
       description: Unique identifier for the product
-      example: '1'
+      example: 'a26783694-6fbe-453e-b34a-2734d75a7cd2'
+    insertion_order:
+      type: number
+      format: integer
+      description: Insertion order of the product (unique)
+      example: 1
     title:
       type: string
       description: Title of the product
@@ -30,7 +35,7 @@ Product:
       type: string
       description: Type of the product category
       example: Gadget
-    image_url:
+    image_path:
       type: string
       description: URL of the product image
       example: http://example.com/image.jpg
