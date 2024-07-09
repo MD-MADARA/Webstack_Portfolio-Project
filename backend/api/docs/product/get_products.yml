@@ -50,7 +50,7 @@ parameters:
     description: Start from this index
   - name: ignore
     in: query
-    type: integer
+    type: string
     required: false
     description: Ignore the product with this ID
 responses:
@@ -90,6 +90,3 @@ responses:
           discount:
             type: integer
             example: 10
-          img_url:
-          type: string
-          example: static/images/product-4aaa-858e-4e2fdcce-27f7-bde3d87d25d5

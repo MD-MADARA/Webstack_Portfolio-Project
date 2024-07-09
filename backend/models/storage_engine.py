@@ -3,19 +3,19 @@
 """
 
 from backend.models.shared import Base
-from backend.models.order_items import OrderItem
 from backend.models.order import Order
 from backend.models.product import Product
 from backend.models.user import User
 from backend.models.cart import Cart
+from backend.models.cart_item import CartItem
 from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
 
 classes = {
-    "Product": Product, "OrderItem": OrderItem,
-    "Order": Order, "User": User, "Cart": Cart
+    "Product": Product, "Order": Order,
+    "User": User, "Cart": Cart, "CartItem": CartItem
 }
 
 

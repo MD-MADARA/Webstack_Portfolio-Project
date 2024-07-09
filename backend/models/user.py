@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ holds User Model"""
 from backend.models.shared import SharedBase, Base
-from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 from hashlib import md5
 
@@ -15,9 +15,10 @@ class User(SharedBase, Base):
     password = Column(String(256), nullable=False)
     address = Column(String(256), nullable=False)
     phone = Column(String(128), nullable=False)
-    cart_id = Column(String(128), ForeignKey('cart.id'))
-    orders = relationship("Order", backref="user", cascade="all, delete, delete-orphan")
-
+    # One-to-One Relationship (1 user to on cart)
+    cart = relationship("Cart", uselist=False, back_populates="user", cascade="all, delete-orphan")
+    # One-to-Many Relationship (1 user to many orders)
+    orders = relationship("Order", back_populates="user")
     
     def __setattr__(self, key, value):
         """sets a password with md5 encryption"""

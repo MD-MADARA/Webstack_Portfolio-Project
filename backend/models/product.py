@@ -7,6 +7,14 @@ from sqlalchemy import Column, String, Integer, CheckConstraint, Float
 class Product(SharedBase, Base):
     """Product Table"""
     __tablename__ = 'products'
+
+    # products must have Insertion_Order for ordering purpose
+    # must be a primary key for auto increment so id must be overrided
+    Insertion_Order = Column(Integer, autoincrement=True, primary_key=True)
+    
+    # override id and remove primary key constraint
+    id = Column(String(128), unique=True)
+
     title = Column(String(256), nullable=False)
     price = Column(Float, nullable=False)
     description = Column(String(1024), nullable=False)

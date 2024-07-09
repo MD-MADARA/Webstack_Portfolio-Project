@@ -48,8 +48,7 @@ def get_products():
     filtered_products = [pd.dict_format() for pd in products]
 
     # Apply filters that cannot be applied directly in the query
-    if ignore and ignore.isdigit():
-        ignore = int(ignore)
+    if ignore:
         filtered_products = [p for p in filtered_products if p['id'] != ignore]
 
     if start_from and start_from.isdigit():
@@ -96,13 +95,20 @@ def post_product():
     if not request.get_json():
         abort(400, description="Not a JSON")
     data = request.get_json()
-    required_fields = ['title', 'price', 'description', 'category_name', 'category_type', 'image_url']
+    required_fields = ['title', 'price', 'description', 'category_name', 'category_type']
 
     for field in required_fields:
         if field not in data:
             abort(400, description=f"Missing {field}")
+    if type(data.get('price')) != float:
+        abort(400, description=f"Price must be a float number")
 
     instance = Product(**data)
+
+    # generate path to store product image based on category and Insertion_Order
+    path = f'products/{instance.category_name}/{instance.category_type}/'
+    path += f'product_ID_{instance.Insertion_Order}/img1.WEBP'
+    instance.image_url = path
     instance.save()
     return make_response(jsonify({"message": "Product created successfully"}), 201)
 
@@ -120,7 +126,7 @@ def put_product(id):
         abort(400, description="Not a JSON")
     data = request.get_json()
 
-    ignore = ['id', 'created_date', 'updated_date']
+    ignore = ['id', 'created_date', 'updated_date', 'image_url']
 
     for key, value in data.items():
         if key not in ignore and hasattr(product, key):

@@ -10,6 +10,7 @@ from flasgger import swag_from
 import re
 
 
+
 # Regular expression for password validation
 # (at least 8 characters, one uppercase, one lowercase, one digit, 
 # and one special character)
@@ -91,13 +92,11 @@ def post_user():
         abort(400, description="Not a JSON")
     data = request.get_json()
     validate_user_data(data)
-
     user = User(**data)
     user.save()
     cart = Cart(user_id=user.id)
     cart.save()
-    user.cart_id = cart.id
-    user.save()
+    
     return make_response(jsonify({"message": "successfully registered"}), 201)
 
 

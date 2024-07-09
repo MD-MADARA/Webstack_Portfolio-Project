@@ -1,2 +1,2 @@
 #!/bin/bash
-mysql -uroot -p < settings/setup_mysql_development.sql
+mysql -uroot -p'Hesoyam25$' < settings/setup_mysql_development.sql
