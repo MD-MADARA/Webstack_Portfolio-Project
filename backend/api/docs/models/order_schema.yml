@@ -1,10 +1,6 @@
 Order:
   type: object
   properties:
-    id:
-      type: string
-      description: Unique identifier for the order
-      example: '1'
     total_price:
       type: number
       format: float
@@ -18,8 +14,11 @@ Order:
       type: string
       description: User ID associated with the order
       example: '1'
-    order_items:
+    items:
       type: array
       items:
-        $ref: '#/definitions/OrderItem'
-      description: List of order items in the order
+        $ref: '#/definitions/CartItem'
+      description: List of items in the order
+    user:
+      $ref: '#/definitions/User'
+      description: User to whom the order belongs

@@ -1,10 +1,6 @@
 Product:
   type: object
   properties:
-    id:
-      type: string
-      description: Unique identifier for the product
-      example: 'a26783694-6fbe-453e-b34a-2734d75a7cd2'
     insertion_order:
       type: number
       format: integer
@@ -38,4 +34,4 @@ Product:
     image_path:
       type: string
       description: URL of the product image
-      example: http://example.com/image.jpg
+      example: static/images/products/Men/T-shirt/product_id.png

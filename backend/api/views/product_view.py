@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" User view """
+""" Product view """
 from backend import storage
 from backend.models.product import Product
 from backend.api.views import app_views

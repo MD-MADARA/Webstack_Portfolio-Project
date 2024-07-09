@@ -14,7 +14,7 @@ app.register_blueprint(app_views)
 user_schema = yaml.safe_load(open('backend/api/docs/models/user_schema.yml'))
 cart_schema = yaml.safe_load(open('backend/api/docs/models/cart_schema.yml'))
 order_schema = yaml.safe_load(open('backend/api/docs/models/order_schema.yml'))
-order_item_schema = yaml.safe_load(open('backend/api/docs/models/order_item_schema.yml'))
+cart_item_schema = yaml.safe_load(open('backend/api/docs/models/cart_item_schema.yml'))
 product_schema = yaml.safe_load(open('backend/api/docs/models/product_schema.yml'))
 shared_base_schema = yaml.safe_load(open('backend/api/docs/models/shared_base_schema.yml'))
 
@@ -29,7 +29,7 @@ swagger = Swagger(app, template={
         "User": user_schema['User'],
         "Cart": cart_schema['Cart'],
         "Order": order_schema['Order'],
-        "OrderItem": order_item_schema['OrderItem'],
+        "CartItem": cart_item_schema['CartItem'],
         "Product": product_schema['Product'],
         "SharedBase": shared_base_schema['SharedBase']
     }

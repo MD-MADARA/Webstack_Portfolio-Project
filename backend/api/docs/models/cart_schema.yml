@@ -1,16 +1,16 @@
 Cart:
   type: object
   properties:
-    id:
-      type: string
-      description: Unique identifier for the cart
-      example: '1'
     user_id:
       type: string
+      example: '4e2fdcce-27f7-4aaa-858e-bde3d87d25d5'
       description: User ID associated with the cart
-      example: '1'
-    products:
+    user:
+      description: Owner of the cart
+      $ref: '#/definitions/User'
+
+    cart_items:
       type: array
       items:
-        $ref: '#/definitions/Product'
-      description: List of products in the cart
+        $ref: '#/definitions/CartItem'
+      description: List of all items in the cart

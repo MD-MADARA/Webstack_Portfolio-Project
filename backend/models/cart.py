@@ -8,7 +8,7 @@ from sqlalchemy.orm import relationship
 class Cart(SharedBase, Base):
     """ cart table """
     __tablename__ = 'cart'
-    # One-to-One Relationship (1 user to on cart)
+    # One-to-One Relationship (1 user to 1 cart)
     user_id = Column(String(128), ForeignKey('users.id'), nullable=False)
     user = relationship("User", back_populates="cart")
     # One-to-Many Relationship (1 cart to many cart_items)

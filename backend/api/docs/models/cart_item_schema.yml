@@ -1,0 +1,25 @@
+CartItem:
+  type: object
+  properties:
+    item_quantity:
+      type: integer
+      description: Quantity of the item in the Cart
+      example: 2
+    product_id:
+      type: string
+      description: Product ID associated with the item
+      example: '4e2rtoop-59o7-4azz-858e-bde3d87d25g5'
+    cart_id:
+      type: string
+      description: Cart ID associated with the item
+      example: '4e2fdcce-27f7-4aaa-858e-bde3d87d26t5'
+    order_id:
+      type: string
+      description: Order ID associated with the item
+      example: '4h57r7ee-25f7-4zza-858e-bde3d87d25d5'
+    cart:
+      $ref: '#/definitions/Cart'
+      description: cart that item belong to
+    order:
+      $ref: '#/definitions/Order'
+      description: order that item belong to

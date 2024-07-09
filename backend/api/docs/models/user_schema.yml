@@ -1,10 +1,6 @@
 User:
   type: object
   properties:
-    id:
-      type: string
-      description: Unique identifier for the user
-      example: '1'
     first_name:
       type: string
       description: First name of the user
@@ -32,9 +28,12 @@ User:
     cart_id:
       type: string
       description: Cart ID associated with the user
-      example: '1'
+      example: '4e2fdcce-27f7-4aaa-858e-bde3d87d25d5'
     orders:
       type: array
       items:
         $ref: '#/definitions/Order'
       description: List of orders made by the user
+    cart:
+      $ref: '#/definitions/Cart'
+      description: User's cart
