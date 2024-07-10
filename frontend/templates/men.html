@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men Page</title>
+    <link rel="icon" href="../static/images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../static/styles/master.css?{{ cache_id }}">
+    <link rel="stylesheet" href="../static/styles/men.css?{{ cache_id }}">
+    <link rel="stylesheet" href="../static/styles/sidebar.css?{{ cache_id }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://font.googleapis.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <nav></nav>
+
+
+    <section class="main-men">
+
+    </section>
+    <!-- New Collection -->
+    <section class="trending-product" id = Trending>
+        <div class="center-text2">
+            <h2>Our <span> New Collection </span></h2>
+        </div>
+        <div id="sidebar">
+
+            <h3>CATEGORIES</h3>
+            <div class="checklist categories">
+                <form>
+                    <input type="radio" id="option1" name="options" value="Jeans">&nbsp;&nbsp;
+                    <label for="option1">Jeans</label>
+                    <br><br>
+                    <input type="radio" id="option2" name="options" value="Sweater">&nbsp;&nbsp;
+                    <label for="option2">Sweater</label>
+                    <br><br>
+                    <input type="radio" id="option3" name="options" value="Suit">&nbsp;&nbsp;
+                    <label for="option3">Suit</label>
+                    <br><br>
+                    <input type="radio" id="option4" name="options" value="T-shirt">&nbsp;&nbsp;
+                    <label for="option4">T-shirt</label>
+                    <br><br>
+                    <input type="radio" id="option5" name="options" value="Hoodie">&nbsp;&nbsp;
+                    <label for="option5">Hoodies</label>
+                    <br><br>
+                    <input type="radio" id="option6" name="options" value="Short">&nbsp;&nbsp;
+                    <label for="option6">Short</label>
+                    <br>
+                </form>
+            </div>
+
+            <h3 style="padding-top: 8px;">COLORS</h3>
+            <div class="checklist colors">
+                <ul>
+                    <li><a href="#"><span></span>Beige</a></li>
+                    <li><a href="#"><span style="background:#000"></span>Black</a></li>
+                    <li><a href="#"><span style="background:#6e8cd5"></span>Blue</a></li>
+                    <li><a href="#"><span style="background:#a52a2a"></span>Brown</a></li>
+                    <li><a href="#"><span style="background:#44c28d"></span>Green</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#"><span style="background:#808080"></span>Grey</a></li>
+                    <li><a href="#"><span style="background:#ffa500"></span>Orange</a></li>
+                    <li><a href="#"><span style="background:#800080"></span>Purple</a></li>
+                    <li><a href="#"><span style="background:#ff0000"></span>Red</a></li>
+                    <li><a href="#"><span style="background:#fff;border: 1px solid #e8e9eb;width:13px;height:13px;"></span>White</a></li>
+                </ul>
+            </div>
+
+            <h3 style="padding-top: 8px;">SIZES</h3>
+            <div class="checklist sizes">
+                <ul>
+                    <li><a href="#"><span></span>XS</a></li>
+                    <li><a href="#"><span></span>S</a></li>
+                    <li><a href="#"><span></span>M</a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#"><span></span>L</a></li>
+                    <li><a href="#"><span></span>XL</a></li>
+                    <li><a href="#"><span></span>XXL</a></li>
+                </ul>
+            </div>
+
+            <h3 style="padding-top: 8px;">PRICE RANGE</h3>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/price-range.png" alt="" style="padding-bottom: 30px;"/>
+        </div>
+
+        <div class="products">
+            <!-- filled dynamically with js -->
+        </div>
+
+        <!-- popup  -->
+        <div class="products-preview hidden">
+            <i class="fas fa-times"></i>
+            <div class="product-container">
+                <main>
+                  <section class="thumbnails"></section>
+
+                  <section class="content"></section>
+                </main>
+              </div>
+        </div>
+
+    </section>
+
+    <footer id="footer"></footer>
+
+
+    <script src="../static/scripts/nav.js"></script>
+    <script src="../static/scripts/men.js"></script>
+    <script src="../static/scripts/popup.js"></script>
+    <script src="../static/scripts/footer.js"></script>
+</body>
+</html>

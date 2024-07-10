@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="dynamicTitle">Product - title</title>
+  <link rel="icon" href="../static/images/logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../static/styles/master.css?{{ cache_id }}">
+  <link rel="stylesheet" href="../static/styles/product.css?{{ cache_id }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://font.googleapis.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+</head>
+<body>
+  <nav></nav>
+  
+  <!-- popup  -->
+  <div class="product-container">
+    <main>
+      <!-- thumbnails -->
+      <section class="thumbnails"></section>
+      <!-- content -->
+      <section class="content"></section>
+    </main>
+  </div>
+  
+  <h2 class="simular_heading hidden">Simular products in this category</h2>
+  <div class="also_viewed"></div>
+  <div class="show-more hidden">Show more</div>
+  <div class="products-preview hidden">
+    <i class="fas fa-times"></i>
+    <div class="product-container">
+        <main>
+          <section class="thumbnails"></section>
+
+          <section class="content"></section>
+        </main>
+      </div>
+  </div>
+  <footer id="footer"></footer>
+  
+  <script src="../static/scripts/nav.js?{{ cache_id }}"></script>
+  <script src="../static/scripts/product.js?{{ cache_id }}"></script>
+  <script src="../static/scripts/popup.js?{{ cache_id }}"></script>
+  <script src="../static/scripts/footer.js?{{ cache_id }}"></script>
+</body>
+</html>
