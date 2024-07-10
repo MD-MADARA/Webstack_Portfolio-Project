@@ -1,0 +1,39 @@
+
+tags:
+  - Cart
+summary: Get cart by user ID
+description: Retrieve the cart and its items for a specified user.
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    schema:
+      type: string
+    description: ID of the user whose cart is being retrieved.
+responses:
+  200:
+    description: Successfully retrieved the cart and its items.
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            id:
+              type: string
+            user_id:
+              type: string
+            cart_items:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  product_id:
+                    type: string
+                  quantity:
+                    type: integer
+  400:
+    description: Invalid request.
+  404:
+    description: User not found.

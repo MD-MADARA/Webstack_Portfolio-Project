@@ -45,7 +45,7 @@ def verify_quantity(quantity):
 
 # GET api/users/{user_id}/cart
 @app_views.route('/users/<string:user_id>/cart', methods=['GET'], strict_slashes=False)
-#@swag_from('../docs/cart/get_cart.yml')
+@swag_from('../docs/cart/get_cart.yml')
 def get_cart(user_id):
     """Get cart by userID"""
     user = get_user_by_id(user_id)
@@ -59,7 +59,7 @@ def get_cart(user_id):
 
 # POST api/users/{user_id}/cart/products
 @app_views.route('/users/<string:user_id>/cart/products', methods=['POST'], strict_slashes=False)
-#@swag_from('../docs/user/post_user.yml')
+@swag_from('../docs/cart/post_cart.yml')
 def add_to_cart(user_id):
     """Add product to cart"""
     user = get_user_by_id(user_id)
@@ -102,7 +102,7 @@ def add_to_cart(user_id):
 
 # DELETE api/users/{user_id}/cart/products
 @app_views.route('/users/<string:user_id>/cart/products', methods=['DELETE'], strict_slashes=False)
-#@swag_from('../docs/user/delete_user.yml')
+@swag_from('../docs/cart/delete_cart.yml')
 def delete_from_cart(user_id):
     """delete product from cart"""
 
@@ -138,7 +138,7 @@ def delete_from_cart(user_id):
 
 # PATCH api/users/{user_id}/cart/products/{product_id}
 @app_views.route('/users/<string:user_id>/cart/products/<string:product_id>', methods=['PATCH'], strict_slashes=False)
-#@swag_from('../docs/user/delete_user.yml')
+@swag_from('../docs/cart/patch_cart.yml')
 def update_in_cart(user_id, product_id):
     """update item of cart"""
     user = get_user_by_id(user_id)

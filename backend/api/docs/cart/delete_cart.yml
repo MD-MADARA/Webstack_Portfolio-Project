@@ -1,0 +1,56 @@
+
+tags:
+  - Cart
+summary: Delete product from cart
+description: Remove a product from the user's cart.
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    schema:
+      type: string
+    description: ID of the user whose cart is being updated.
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          product_id:
+            type: string
+        required:
+          - product_id
+responses:
+  200:
+    description: Product removed from cart successfully.
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: Product with ID {productId} removed from cart successfully
+            cart:
+              type: object
+              properties:
+                id:
+                  type: string
+                user_id:
+                  type: string
+                cart_items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      product_id:
+                        type: string
+                      quantity:
+                        type: integer
+  400:
+    description: Invalid request or missing data.
+  404:
+    description: User or product not found in cart.
