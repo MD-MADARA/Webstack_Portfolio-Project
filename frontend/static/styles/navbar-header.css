@@ -1,0 +1,229 @@
+.navbar-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/*navbar top (height: 60px)*/
+.navbar-top {
+    height: 60px;
+    background-color: #131921;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    padding: 0 11px;
+}
+
+.nav-top-right-section {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.header-primary-link {
+    display: inline-block;
+    text-decoration: none;
+    margin: 1px;
+    border: 1px solid #131921;
+    border-radius: 2px;
+    height: 50px;
+    padding: 1px 8px 0px 6px;
+    cursor: pointer;
+}
+.header-primary-link:hover {
+    border: 1px solid white;
+}
+.logo-base-container {
+    margin-top: 10px;
+    width: 97px;
+    height: 30px;
+}
+
+.location-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.location-icon {
+    margin-top: 10px;
+    margin-right: 1px;
+    width: 19px;
+}
+
+.light-heavy {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+    line-height: 14px;
+}
+
+.light-text {
+    font-size: 12px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.location-text-container .light-text{
+    color: #ccc;
+}
+.heavy-text {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 700;
+}
+.nav-top-middle-section {
+    display: flex;
+    align-items: center;
+    width: 0;
+    flex-grow: 1;
+    padding: 0 16px;
+}
+
+.search-alias {
+    height: 40px;
+    width: 50px;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: solid 1px #bbb;
+    padding: 0 5px;
+    font-size: 12px;
+    font-family: "Amazon Ember",Arial,sans-serif;
+    background-color: #e6e6e6;
+    color: #555;
+    flex-shrink: 0;
+}
+
+.search-alias:focus {
+    color: black;
+}
+.search-alias:hover {
+    color: black;
+    opacity: 0.9;
+}
+
+.search-input {
+    width: 0;
+    height: 40px;
+    border: none;
+    flex-grow: 1;
+    font-size: 16px;
+    padding-left: 6px;
+}
+.search-button {
+    width: 45px;
+    height: 40px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: rgb(254, 189, 105);
+    flex-shrink: 0;
+}
+.search-button:hover {
+    background-color: rgb(248, 159, 43);
+    
+}
+.search-icon{
+    width: 22px;
+}
+.nav-top-left-section{
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+}
+.lang-container {
+    display: flex;
+    align-items: center;
+    padding-top: 7px;
+}
+.flag-container {
+    width: 22px;
+    margin-top: 5px;
+    margin-right: 2px;
+}
+.down-arrow-container{
+    font-size: 8px;
+    margin-left: 3px;
+    color:  #ccc;
+    align-self: flex-end;
+}
+#account-down-arrow {
+    margin-bottom: 8px;
+}
+#lang-down-arrow {
+    margin-bottom: 13px;
+}
+.account-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 4px;
+}
+.return-orders-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+}
+.cart-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.cart-logo-container {
+    width: 45px;
+}
+.cart-quantity {
+    color: rgb(240, 136, 4);
+    font-size: 15px;
+    font-weight: 700;
+  
+    position: absolute;
+    top: 4px;
+    left: 19px;
+    
+    width: 26px;
+    text-align: center;
+}
+
+/* navbar-buttom (height: 40px)*/
+.navbar-buttom{
+    background-color: #232f3e;
+    height: 40px;
+    display: flex;
+    padding-left: 20px;
+    
+}
+
+.header-secondary-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid #232f3e;
+    border-radius: 2px;
+    height: 100%;
+    padding: 1px 10px;
+    cursor: pointer;
+    margin-right: 3px;
+}
+.header-secondary-link:hover {
+    border: 1px solid white;
+}
+.header-secondary-link .light-text {
+    font-size: 14px;
+}
+.menu-container {
+    width: 60px;
+    padding: 0px 8px;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+.menu-icon {
+    width: 18px;
+}
