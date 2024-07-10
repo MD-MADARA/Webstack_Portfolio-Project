@@ -1,0 +1,51 @@
+.contact{
+    background-color: #F5F5F5;
+    padding: 5% 10%;
+}
+.contact-info{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, auto));
+    gap: 3rem;
+}
+.first-info img{
+    width: 140px;
+    height: auto;
+}
+.contact-info h4{
+    color: #111010;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.contact-info p{
+    color: #565656;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all .42s;
+
+}
+.contact-info p:hover{
+    color: crimson;
+}
+.social-icon i{
+    color: black;
+    margin-right: 10px;
+    font-size: 20px;
+    transition: all .42s;
+}
+.social-icon i:hover{
+    transform: scale(1.3);
+}
+.end-text{
+    background-color: #F5F5FF;
+    text-align: center;
+    padding: 20px;
+}
+.end-text p{
+    color: #111;
+    text-transform: capitalize;
+}

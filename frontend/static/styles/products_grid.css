@@ -1,0 +1,98 @@
+.products{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    gap: 2rem;
+    min-height: 100vh;
+}
+
+.row{
+    max-width: 210px;
+    position: relative;
+    transition: all .40s;
+}
+.card-img {
+    position: relative;
+}
+
+.row img{
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    transition: all .40s;
+}
+
+.row:hover{
+    transform: scale(1.06);
+}
+.row:hover .card-btn {
+    opacity: 1;
+}
+.product-text{
+    position: absolute;
+    top: 9px;
+    right: 13px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: rgb(53, 196, 5);
+    padding: 3px 10px;
+    border-radius: 2px;
+}
+.product-discount {
+    position: absolute;
+    top: 9px;
+    right: 13px;
+    background-color: var(--Pale-orange);
+    padding: 0.3rem;
+    border-radius: 6px;
+    color: crimson;
+    font-weight: 700;
+    border-radius: 5px;
+}
+.card-btn {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    width: 60%;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+    opacity: 0;
+}
+.card-btn:hover {
+    background-color: #ddd;
+}
+.heart-icon{
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+}
+.heart-icon:hover{
+    color: red;
+}
+
+.price h4{
+    color: #111;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 400;
+    margin-right: 10px;
+}
+.price p{
+    color: #151515;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+.line-through {
+    text-decoration: line-through;
+    text-decoration-thickness: 0.5px;
+    font-weight: 400;
+}

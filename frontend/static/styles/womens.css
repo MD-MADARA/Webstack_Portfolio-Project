@@ -1,0 +1,105 @@
+  @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+    :root {
+      --Orange: hsl(26, 100%, 55%);
+      --Pale-orange: hsl(25, 100%, 94%);
+      --Very-dark-blue: hsl(220, 13%, 13%);
+      --Dark-grayish-blue: hsl(219, 9%, 45%);
+      --Grayish-blue: hsl(220, 14%, 75%);
+      --Light-grayish-blue: hsl(223, 64%, 98%);
+      --White: hsl(0, 0%, 100%);
+      --Black: hsl(0, 0%, 0%);
+    }
+    section {
+        padding: 4% 2%;
+    }
+
+    .main-women{
+        width: 100%;
+        height: 100vh;
+        background-image: url("../images/women-banner.jpg");
+        background-position: center;
+        background-size: cover;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+
+    }
+    .text h5{
+        color:#DBC1B2;
+        font-size: 16px;
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+    .text h1{
+        color: #000;
+        font-size: 65px;
+        text-transform: capitalize;
+        line-height: 1.1;
+        font-weight: 600;
+        margin: 6px 0 10px ;
+    }
+    .text p{
+        color: #333c56;
+        font-size: 20px;
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+    .btn{
+        display: inline-block;
+        color: #111;
+        font-size: 16px;
+        font-weight: 500;
+        text-transform:  capitalize;
+        border: 2px solid #111;
+        border-radius: 10px;
+        padding: 12px 25px ;
+        transition: all .42s ease;
+    }
+    .btn:hover{
+        background-color: #DBC1B2;
+        color: #fff;
+    }
+    .btn i{
+       vertical-align: middle;
+    }
+
+    .downn{
+        position: absolute;
+        top: 85%;
+        right: 11%;
+    }
+    .downn i{
+        font-size: 30px ;
+        color: #2c2c2c;
+        border:  2px solid #2c2c2c;
+        border-radius: 50px;
+        padding: 12px 12px;
+    }
+    .downn i:hover{
+        background-color: #EFDBDD;
+        cursor: #fff;
+        transition: all .42s ease;
+
+    }
+    /* header.sticky */
+
+    /* ternding-section-css */
+    .center-text1 h2{
+        color: black;
+        font-size: 28px;
+        text-transform: capitalize;
+        text-align: center;
+        margin-bottom: 30px;
+
+    }
+    .center-text1 span{
+        color:#B69380;
+    }
+
+
+    @media(max-width:630px){
+        .text{
+            font-size: 18px;
+            transition: .4s;
+        }
+    }
