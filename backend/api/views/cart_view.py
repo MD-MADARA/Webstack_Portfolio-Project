@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ Cart view """
 from backend import storage
-from backend.models.cart import Cart
 from backend.models.cart_item import CartItem
 from backend.models.product import Product
 from backend.models.user import User
