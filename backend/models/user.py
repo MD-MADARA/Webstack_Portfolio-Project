@@ -19,7 +19,7 @@ class User(SharedBase, Base):
     cart = relationship("Cart", uselist=False, back_populates="user", cascade="all, delete-orphan")
     # One-to-Many Relationship (1 user to many orders)
     orders = relationship("Order", back_populates="user")
-    
+
     def __setattr__(self, key, value):
         """sets a password with md5 encryption"""
         if key == "password":

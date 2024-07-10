@@ -38,6 +38,7 @@ class SharedBase:
         self.updated_date = datetime.now(timezone.utc)
         storage.new(self)
         storage.save()
+        storage.refresh(self)
 
     def delete(self):
         """delete the current instance from the storage"""

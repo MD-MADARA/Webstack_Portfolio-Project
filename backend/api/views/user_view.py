@@ -32,7 +32,7 @@ def validate_user_data(data):
     for field in required_fields:
         if field not in data:
             abort(400, description=f"Missing {field}")
-    
+
     # Validate email format using regex
     if not re.match(EMAIL_REGEX, data.get('email')):
         abort(400, description="Invalid email format")
@@ -66,7 +66,7 @@ def get_users():
         return make_response(jsonify(user.dict_format()), 200)
 
     users = [user.dict_format() for user in storage.all(User).values()]
-    if limit:
+    if limit and limit.isdigit():
         limit = int(limit)
         users = users[:limit]
     return make_response(jsonify(users), 200)
@@ -97,8 +97,9 @@ def post_user():
     # create cart for this user
     cart = Cart(user_id=user.id)
     cart.save()
-    
-    return make_response(jsonify({"message": "successfully registered"}), 201)
+    apiResponse = {"message": "successfully registered"}
+    apiResponse.update({"user": user.dict_format()})
+    return make_response(jsonify(apiResponse), 201)
 
 
 # PUT api/users/{id}

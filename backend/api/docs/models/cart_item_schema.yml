@@ -1,7 +1,7 @@
 CartItem:
   type: object
   properties:
-    item_quantity:
+    quantity:
       type: integer
       description: Quantity of the item in the Cart
       example: 2

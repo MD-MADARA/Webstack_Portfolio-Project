@@ -111,10 +111,14 @@ class StorageEngine:
             query = query.order_by(getattr(cls, order_asc))
         elif order_desc and hasattr(cls, order_desc):
             query = query.order_by(getattr(cls, order_desc).desc())
-        
+
         # Execute the query and fetch all results
         objs = query.all()
 
         # Construct a dictionary of objects with a custom key format
         new_dict = {f'(N°{i}) {obj.__class__.__name__}.{obj.id}': obj for i, obj in enumerate(objs, start=1)}
         return new_dict
+
+    def refresh(self, obj):
+        """Reloads the Instance state"""
+        self.__session.refresh(obj)

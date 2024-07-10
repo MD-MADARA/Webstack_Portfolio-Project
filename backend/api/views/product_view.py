@@ -117,7 +117,9 @@ def post_product():
     path += f'product_ID_{instance.insertion_order}/img1.WEBP'
     instance.image_path = path
     instance.save()
-    return make_response(jsonify({"message": "Product created successfully"}), 201)
+    apiResponse = {"message": "Product created successfully"}
+    apiResponse.update({"product": instance.dict_format()})
+    return make_response(jsonify(apiResponse), 201)
 
 
 @app_views.route('/products/<string:id>', methods=['PUT'], strict_slashes=False)
