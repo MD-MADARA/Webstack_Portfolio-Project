@@ -4,29 +4,29 @@ tags:
 summary: Update item in cart
 description: Update the quantity of a product in the user's cart or remove it if the quantity is zero.
 parameters:
-  - in: path
-    name: user_id
+  - name: user_id
+    in: path
     required: true
     schema:
       type: string
     description: ID of the user whose cart is being updated.
-  - in: path
-    name: product_id
+  - name: product_id
+    in: path
     required: true
     schema:
       type: string
-    description: ID of the product being updated.
-requestBody:
-  required: true
-  content:
-    application/json:
-      schema:
-        type: object
-        properties:
-          quantity:
-            type: integer
-        required:
-          - quantity
+    description: ID of the product whose quantity is being updated.
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - quantity
+      properties:
+        quantity:
+          type: integer
+          example: 2
 responses:
   200:
     description: Quantity of product updated successfully.

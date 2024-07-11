@@ -4,26 +4,27 @@ tags:
 summary: Add product to cart
 description: Add a product to the user's cart or update the quantity if it already exists.
 parameters:
-  - in: path
-    name: user_id
+  - name: user_id
+    in: path
     required: true
     schema:
       type: string
     description: ID of the user whose cart is being updated.
-requestBody:
-  required: true
-  content:
-    application/json:
-      schema:
-        type: object
-        properties:
-          product_id:
-            type: string
-          quantity:
-            type: integer
-        required:
-          - product_id
-          - quantity
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - product_id
+        - quantity
+      properties:
+        product_id:
+          type: string
+          example: 4aaa-858e-4e2fdcce-27f7-bde3d87d25d5
+        quantity:
+          type: integer
+          example: 2
 responses:
   201:
     description: Product added to cart successfully.

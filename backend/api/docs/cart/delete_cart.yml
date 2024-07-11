@@ -4,23 +4,23 @@ tags:
 summary: Delete product from cart
 description: Remove a product from the user's cart.
 parameters:
-  - in: path
-    name: user_id
+  - name: user_id
+    in: path
     required: true
     schema:
       type: string
     description: ID of the user whose cart is being updated.
-requestBody:
-  required: true
-  content:
-    application/json:
-      schema:
-        type: object
-        properties:
-          product_id:
-            type: string
-        required:
-          - product_id
+  - name: body
+    in: body
+    required: true
+    schema:
+      type: object
+      required:
+        - product_id
+      properties:
+        product_id:
+          type: string
+          example: 4aaa-858e-4e2fdcce-27f7-bde3d87d25d5
 responses:
   200:
     description: Product removed from cart successfully.
