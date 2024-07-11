@@ -5,6 +5,7 @@ from flask import jsonify, make_response
 from backend import storage
 from backend.models.product import Product
 from backend.models.user import User
+from backend.models.order import Order
 
 
 @app_views.route('/status', methods=['GET'], strict_slashes=False)
@@ -17,7 +18,7 @@ def status():
 def objects_stats():
     """ Retrieves the number of each objects by type """
     classes = {
-    "Product": Product, "User": User
+        "Product": Product, "User": User, "Order": Order
     }
 
     stats = {}
