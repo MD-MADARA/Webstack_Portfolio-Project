@@ -1,0 +1,46 @@
+tags:
+  - Orders
+summary: Get orders
+description: Retrieve orders for a specified user or all orders if no user ID is provided.
+parameters:
+  - in: path
+    name: user_id
+    required: false
+    schema:
+      type: string
+    description: ID of the user whose orders are being retrieved. If not provided, all orders are retrieved.
+responses:
+  200:
+    description: Successfully retrieved the orders.
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              user_id:
+                type: string
+              total_price:
+                type: number
+                format: float
+              order_items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    product_id:
+                      type: string
+                    quantity:
+                      type: integer
+                    price:
+                      type: number
+                      format: float
+  404:
+    description: User not found.
+  500:
+    description: Internal server error.

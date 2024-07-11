@@ -44,7 +44,7 @@ def verify_total_price(total):
 # GET api/users/orders
 @app_views.route('/users/<string:user_id>/orders', methods=['GET'], strict_slashes=False)
 @app_views.route('/users/orders', methods=['GET'], strict_slashes=False)
-# @swag_from('../docs/cart/get_cart.yml')
+@swag_from('../docs/orders/get_orders.yml')
 def get_orders(user_id=None):
     """Get orders"""
     if user_id:
@@ -69,7 +69,7 @@ def get_orders(user_id=None):
 
 # POST api/users/{user_id}/orders
 @app_views.route('/users/<string:user_id>/orders', methods=['POST'], strict_slashes=False)
-# @swag_from('../docs/cart/post_cart.yml')
+@swag_from('../docs/orders/post_order.yml')
 def add_order(user_id):
     """Add product to cart"""
     user = get_user_by_id(user_id)
@@ -100,7 +100,7 @@ def add_order(user_id):
     }
 
     apiResponse = {
-        "message": f"Order with ID {new_order.id} placed successfully",
+        "message": f"Order with ID {new_order.id} created successfully",
         "order": {**order, **items}
     }
 
