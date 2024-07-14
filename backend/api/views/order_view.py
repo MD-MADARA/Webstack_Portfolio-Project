@@ -51,7 +51,7 @@ def get_orders(user_id=None):
         user = get_user_by_id(user_id)
         all_orders = user.orders
     else:
-        all_orders = storage.all(Order)
+        all_orders = storage.all(Order).values()
 
     apiResponse = []
     for o in all_orders:
